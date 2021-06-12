@@ -1,6 +1,5 @@
-#!/bin/sh
+#!/bin/env bash
+
+cat /usr/share/dict/words | grep -P "^(.*a){3}[a-z]*$" | sed -E 's/^.*(\w{2})$/\1/' | uniq -c | sort | tail -n3
 
 
-cat ~/../../usr/share/dict/words | gawk '/(\w*a){3}\w*[^s]$/ {print $1;}' | \
-sed -E 's/[a-zA-Z]*([a-zA-Z]{2}$)/\1/' | sort | uniq -c | sort  -rnk1,1 | head -n 3 | \
-tee ~/Desktop/study/lecture4/tempor.txt
